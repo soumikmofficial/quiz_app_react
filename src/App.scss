@@ -1,5 +1,95 @@
 @import "./global.scss";
 
-.App {
-  font-size: 3rem;
+.loading {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    color: $col-text-1;
+    background-color: $col-bg-2;
+    position: relative;
+    min-height: 100%;
+    width: 100%;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .tally {
+      flex: 0.2;
+      margin-left: auto;
+      font-size: 1.7rem;
+      font-weight: 600;
+    }
+    .question-answer {
+      flex: 0.6;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      margin: 2rem 0;
+      width: 90%;
+
+      @include tab {
+        width: 50%;
+      }
+
+      .question {
+        flex: 0.3;
+        @include flex-center;
+        h2 {
+          text-align: center;
+          font-size: 3rem;
+          line-height: 150%;
+        }
+      }
+      .answer {
+        flex: 0.7;
+        @include flex-center;
+        flex-direction: column;
+        p {
+          background-color: $col-text-1;
+          color: $col-bg-2;
+          font-weight: 600;
+          font-size: 1.6rem;
+          padding: 0.8rem 0;
+          min-width: 30rem;
+          text-align: center;
+          margin: 0.8rem 0;
+          border-radius: 0.6rem;
+          cursor: pointer;
+
+          &:hover {
+            background-color: $col-bg-3;
+            color: $col-text-1;
+          }
+        }
+      }
+    }
+    .next {
+      flex: 0.2;
+      // margin-left: auto;
+      @include flex-center;
+      justify-content: flex-end;
+      .icon {
+        font-size: 2.5rem;
+        cursor: pointer;
+        &:hover {
+          color: $col-bg-2;
+          background-color: $col-bg-1;
+          border-radius: 50%;
+          padding: 0.5rem;
+        }
+      }
+    }
+  }
 }

@@ -1,0 +1,16 @@
+$col-bg-1: rgb(223, 206, 206);
+$col-bg-2: hsl(0, 65%, 60%);
+$col-bg-3: rgb(143, 36, 36);
+$col-text-1: white;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin tab {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
