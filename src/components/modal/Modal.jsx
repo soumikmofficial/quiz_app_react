@@ -7,8 +7,8 @@ function Modal() {
     <div className={isModalOpen ? " modal-container show" : "modal-container"}>
       <div className="modal">
         <p>
-          <span>{(correct / questions.length) * 100}%</span> of your answers
-          were correct
+          <span>{((correct / questions.length) * 100).toFixed()}%</span> of your
+          answers were correct
         </p>
         <button className="reset" onClick={closeModal}>
           Reset / Play Again
