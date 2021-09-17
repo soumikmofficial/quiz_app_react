@@ -1,4 +1,3 @@
-import { useState } from "react";
 import SetupQuiz from "./components/setupQuiz/SetupQuiz";
 import Modal from "./components/modal/Modal";
 import DotLoader from "react-spinners/DotLoader";
@@ -7,8 +6,15 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import "./App.scss";
 
 function App() {
-  const [index, setIndex] = useState(0);
-  const { waiting, loading, questions, correct } = useGlobalContext();
+  const {
+    waiting,
+    loading,
+    questions,
+    correct,
+    checkAnswer,
+    nextQuestion,
+    index,
+  } = useGlobalContext();
   if (waiting) {
     return <SetupQuiz />;
   }
@@ -22,9 +28,11 @@ function App() {
   }
   const { question, incorrect_answers, correct_answer } = questions[index];
   const answers = [...incorrect_answers, correct_answer];
+
   return (
     <main>
       <div className="container">
+        <Modal />
         <p className="tally">
           Correct Answers : {correct} / {index}
         </p>
@@ -34,13 +42,19 @@ function App() {
             <h2 dangerouslySetInnerHTML={{ __html: question }} />
           </div>
           <div className="answer">
-            {answers.map((answer) => {
-              return <p dangerouslySetInnerHTML={{ __html: answer }} />;
+            {answers.map((answer, index) => {
+              return (
+                <p
+                  key={index}
+                  dangerouslySetInnerHTML={{ __html: answer }}
+                  onClick={() => checkAnswer(answer === correct_answer)}
+                />
+              );
             })}
           </div>
         </article>
         <div className="next">
-          <AiOutlineArrowRight className="icon" />
+          <AiOutlineArrowRight className="icon" onClick={nextQuestion} />
         </div>
       </div>
     </main>

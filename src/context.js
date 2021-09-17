@@ -13,6 +13,20 @@ const AppProvider = ({ children }) => {
   const [questions, setQuestions] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [correct, setCorrect] = useState(0);
+  const [index, setIndex] = useState(0);
+  const [quiz, setQuiz] = useState({
+    amount: 10,
+    category: "computer",
+    difficulty: "easy",
+  });
+
+  const handleChange = (e) => {
+    console.log(e);
+  };
+
+  const handleSubmit = () => {
+    console.log("submitted");
+  };
 
   const fetchQuestions = async (url) => {
     setLoading(true);
@@ -34,9 +48,37 @@ const AppProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    fetchQuestions(tempUrl);
-  }, []);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setIndex(0);
+    setWaiting(true);
+    console.log(`modal is ${isModalOpen}`);
+    console.log(`waiting is ${waiting}`);
+  };
+  const nextQuestion = () => {
+    console.log(index);
+    if (index < questions.length - 1) {
+      setIndex(index + 1);
+    } else {
+      setIndex(0);
+      openModal();
+    }
+  };
+
+  const checkAnswer = (value) => {
+    if (value) {
+      setCorrect(correct + 1);
+    }
+    nextQuestion();
+  };
+
+  // useEffect(() => {
+  //   fetchQuestions(tempUrl);
+  // }, []);
 
   return (
     <AppContext.Provider
@@ -46,6 +88,14 @@ const AppProvider = ({ children }) => {
         questions,
         isModalOpen,
         correct,
+        index,
+        checkAnswer,
+        nextQuestion,
+        closeModal,
+        quiz,
+        handleSubmit,
+        handleChange,
+        error,
       }}
     >
       {children}

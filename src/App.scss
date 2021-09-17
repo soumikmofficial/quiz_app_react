@@ -16,6 +16,8 @@ main {
   align-items: center;
 
   .container {
+    transition: all 0.3s ease;
+
     color: $col-text-1;
     background-color: $col-bg-2;
     position: relative;
@@ -77,7 +79,8 @@ main {
     }
     .next {
       flex: 0.2;
-      // margin-left: auto;
+      position: fixed;
+      bottom: 10%;
       @include flex-center;
       justify-content: flex-end;
       .icon {

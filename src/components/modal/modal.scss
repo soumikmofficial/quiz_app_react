@@ -1,1 +1,45 @@
 @import "../../global.scss";
+
+.modal-container {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: hsla(0, 65%, 10%, 0.9);
+  transition: all 0.3s ease;
+  @include flex-center;
+  opacity: 0;
+  z-index: -1;
+  &.show {
+    opacity: 1;
+    z-index: 5;
+  }
+
+  .modal {
+    width: 45rem;
+    height: 20rem;
+    background-color: $col-bg-3;
+    @include flex-center;
+    flex-direction: column;
+    border-radius: 0.8rem;
+    p {
+      font-size: 1.8rem;
+      span {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+    }
+
+    .reset {
+      margin-top: 4rem;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      background-color: rgb(255, 255, 255);
+      color: $col-bg-3;
+      color: black;
+      border: none;
+      cursor: pointer;
+      font-size: 1.6rem;
+    }
+  }
+}
