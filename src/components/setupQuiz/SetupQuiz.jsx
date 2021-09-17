@@ -20,7 +20,7 @@ function SetupQuiz() {
                 type="number"
                 name="amount"
                 id="amount"
-                onChange={handleChange}
+                onChange={(e) => handleChange(e)}
                 value={quiz.amount}
                 min={10}
                 max={50}
@@ -31,7 +31,11 @@ function SetupQuiz() {
              */}
             <div className="form-control">
               <label htmlFor="category">Category</label>
-              <select name="category" id="category" onChange={handleChange}>
+              <select
+                name="category"
+                id="category"
+                onChange={(e) => handleChange(e)}
+              >
                 <option value="computer">computer</option>
                 <option value="sports">sports</option>
                 <option value="politics">politics</option>
@@ -41,7 +45,11 @@ function SetupQuiz() {
             {/* difficulty */}
             <div className="form-control">
               <label htmlFor="difficulty">Difficulty</label>
-              <select name="difficulty" id="difficulty" onChange={handleChange}>
+              <select
+                name="difficulty"
+                id="difficulty"
+                onChange={(e) => handleChange(e)}
+              >
                 <option value="easy">easy</option>
                 <option value="medium">medium</option>
                 <option value="hard">hard</option>
