@@ -69,11 +69,8 @@ const AppProvider = ({ children }) => {
     setIsModalOpen(false);
     setIndex(0);
     setWaiting(true);
-    console.log(`modal is ${isModalOpen}`);
-    console.log(`waiting is ${waiting}`);
   };
   const nextQuestion = () => {
-    console.log(index);
     if (index < questions.length - 1) {
       setIndex(index + 1);
     } else {
