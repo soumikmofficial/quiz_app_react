@@ -1,10 +1,7 @@
 import axios from "axios";
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 
 const API_ENDPOINT = "https://opentdb.com/api.php?";
-
-const tempUrl =
-  "https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=multiple";
 
 const table = {
   sports: 21,

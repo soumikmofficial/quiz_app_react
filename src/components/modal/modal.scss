@@ -1,14 +1,14 @@
 @import "../../global.scss";
 
 .modal-container {
+  @include flex-center;
+  background-color: hsla(0, 65%, 10%, 0.9);
+  height: 100vh;
+  opacity: 0;
   position: absolute;
   top: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: hsla(0, 65%, 10%, 0.9);
   transition: all 0.3s ease;
-  @include flex-center;
-  opacity: 0;
+  width: 100vw;
   z-index: -1;
   &.show {
     opacity: 1;
@@ -16,12 +16,12 @@
   }
 
   .modal {
-    width: 45rem;
-    height: 20rem;
-    background-color: $col-bg-3;
     @include flex-center;
-    flex-direction: column;
+    background-color: $col-bg-3;
     border-radius: 0.8rem;
+    flex-direction: column;
+    height: 20rem;
+    width: 45rem;
     p {
       font-size: 1.8rem;
       span {
@@ -31,15 +31,15 @@
     }
 
     .reset {
-      margin-top: 4rem;
-      padding: 0.5rem 1rem;
-      font-weight: 600;
       background-color: rgb(255, 255, 255);
+      border: none;
       color: $col-bg-3;
       color: black;
-      border: none;
       cursor: pointer;
       font-size: 1.6rem;
+      font-weight: 600;
+      margin-top: 4rem;
+      padding: 0.5rem 1rem;
     }
   }
 }

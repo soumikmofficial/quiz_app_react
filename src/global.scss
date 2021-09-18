@@ -4,9 +4,9 @@ $col-bg-3: rgb(143, 36, 36);
 $col-text-1: white;
 
 @mixin flex-center {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 @mixin tab {
